@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces.Repositories;
+﻿using Domain.Interfaces;
+using Domain.Interfaces.Repositories;
 using Infrastructure.Configuration;
 using Infrastructure.Db;
 using Infrastructure.Repositories;
@@ -17,6 +18,7 @@ public static class ServiceCollectionExtensions
 
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IOrderRepository, OrderRepository>();
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }

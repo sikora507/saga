@@ -20,18 +20,17 @@ public class Repository<T> : IRepository<T> where T : class, IAggregateRoot
     public async Task AddAsync(T entity)
     {
         await Context.Set<T>().AddAsync(entity);
-        await Context.SaveChangesAsync();
     }
 
-    public async Task UpdateAsync(T entity)
+    public Task UpdateAsync(T entity)
     {
         Context.Set<T>().Update(entity);
-        await Context.SaveChangesAsync();
+        return Task.CompletedTask;
     }
 
-    public async Task DeleteAsync(T entity)
+    public Task DeleteAsync(T entity)
     {
         Context.Set<T>().Remove(entity);
-        await Context.SaveChangesAsync();
+        return Task.CompletedTask;
     }
 }
