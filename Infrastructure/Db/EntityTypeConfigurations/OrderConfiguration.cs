@@ -9,6 +9,6 @@ public class OrderConfiguration : IEntityTypeConfiguration<Order>
     public void Configure(EntityTypeBuilder<Order> builder)
     {
         builder.HasKey(o => o.Id);
-        builder.ToContainer("SagaContainer");
+        builder.ToContainer("SagaContainer").HasPartitionKey(x=>x.Id);
     }
 }

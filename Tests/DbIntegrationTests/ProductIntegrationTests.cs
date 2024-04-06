@@ -9,6 +9,7 @@ using Xunit.Priority;
 namespace DbIntegrationTests;
 
 [Collection(nameof(CosmosDbCollection))]
+[TestCaseOrderer(PriorityOrderer.Name, PriorityOrderer.Assembly)]
 public class ProductIntegrationTests : IClassFixture<ProductIntegrationTestsData>
 {
     private readonly ProductIntegrationTestsData _data;
